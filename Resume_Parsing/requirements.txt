@@ -1,0 +1,5 @@
+spacy==3.8.4
+fitz
+pandas==2.2.3
+numpy==2.2.2
+PyMuPDF==1.25.3
