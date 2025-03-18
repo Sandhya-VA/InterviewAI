@@ -7,7 +7,7 @@ import numpy as np
 """
 You can comment the code from line 10 to 23 once u have trained the model 
 """
-df_resume = pd.read_csv("C:/Users/kenchatg/Softwares/Sem2/ProjInAI/InterviewAI/Resume_Parsing/Resume/Resume.csv") #Path of the Resume folder
+df_resume = pd.read_csv("../Resume/Resume.csv") #Path of the Resume folder
 
 #randomized Job categories so that 200 samples contain various job categories instead of one.
 df_resume = df_resume.reindex(np.random.permutation(df_resume.index))
@@ -17,7 +17,7 @@ df_resume = df_resume.copy().iloc[0:200,]
 
 
 nlp = spacy.load("en_core_web_md")
-skill_pattern_path = "C:/Users/kenchatg/Softwares/Sem2/ProjInAI/InterviewAI/Resume_Parsing/jz_skill_patterns.jsonl" #path to jz_skill_patterns.jsonl file
+skill_pattern_path = "../jz_skill_patterns.jsonl" #path to jz_skill_patterns.jsonl file
 
 ruler = nlp.add_pipe("entity_ruler")
 ruler.from_disk(skill_pattern_path)
@@ -50,7 +50,7 @@ def preprocessing(sentence):
     return " ".join(cleaned_tokens)
 
 # Below is the path of the dummy resume to be tested
-fname = 'C:/Users/kenchatg/Softwares/Sem2/ProjInAI/CV-Parsing-using-Spacy-3-master/CV-Parsing-using-Spacy-3-master/data/test/Alice Clark CV.pdf'
+fname = '../Alice Clark CV.pdf'
 doc = fitz.open(fname)
 text = ""
 for page in doc:
