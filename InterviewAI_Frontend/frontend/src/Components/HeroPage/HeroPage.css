@@ -1,0 +1,22 @@
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px 20px 5px 20px;
+    width: fit-content;
+    background-color: rgb(6, 106, 6);
+    color: white;
+}
+.btn:hover{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px 20px 5px 20px; 
+    background-color: rgb(35, 166, 35);
+    color: white;
+    
+}
