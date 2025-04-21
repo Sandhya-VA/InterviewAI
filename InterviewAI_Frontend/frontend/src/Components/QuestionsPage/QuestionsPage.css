@@ -1,0 +1,110 @@
+.interview-layout {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.question-panel {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.question-box {
+  border: 1px solid #ddd;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.record-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.video-preview {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+
+/* Buttons */
+button {
+  background-color: #0d6efd;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #084298;
+}
+
+/* Results Summary */
+.results {
+  padding: 2rem;
+}
+
+.feedback-tile {
+  background: #f1f1f1;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+}
+
+/* ===== Timer Styling ===== */
+.timer-label {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.timer-label.big {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1.2rem;
+}
+
+.timer-label.recording {
+  color: #dc3545;
+  animation: pulse 1.5s infinite;
+}
+
+/* Recording Pulse Effect */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Stop Button */
+.stop-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 0.7rem 1.6rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.stop-button:hover {
+  background-color: #a71d2a;
+}

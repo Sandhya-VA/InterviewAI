@@ -1,0 +1,27 @@
+.btn-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .upload-btn {
+    background-color: #1e3a8a;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-btn:hover {
+    background-color: #3b60d1;
+  }
+  
+  .file-label,
+  .upload-status {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #333;
+  }
+  

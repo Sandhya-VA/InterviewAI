@@ -1,35 +1,32 @@
-import React from 'react'
-import Navbar from '../NavBar/Navbar'
-import '../HeroPage/HeroPage.css'
-import FileUpload from '../FileUpload/FileUpload'
+import React from 'react';
+import Navbar from '../NavBar/Navbar';
+import '../HeroPage/HeroPage.css';
+import FileUpload from '../FileUpload/FileUpload';
 
-const HeroPage = ({setSkills}) => {
+const HeroPage = ({ setSkills, setQuestions }) => {
   return (
-    <div>
-      <Navbar/>
-      <div>
-      <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-      <p> Commodi cum obcaecati sequi qui eum vitae quia consequuntur expedita </p>
-      <p>  laborum totam quod blanditiis debitis, exercitationem asperiores aperiam beatae tempora? Distinctio, cum.</p>
-      <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-      <p> Commodi cum obcaecati sequi qui eum vitae quia consequuntur expedita </p>
-      <p>  laborum totam quod blanditiis debitis, exercitationem asperiores aperiam beatae tempora? Distinctio, cum.</p>
-      <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-      <p> Commodi cum obcaecati sequi qui eum vitae quia consequuntur expedita </p>
-      <p>  laborum totam quod blanditiis debitis, exercitationem asperiores aperiam beatae tempora? Distinctio, cum.</p>
-      <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-      <p> Commodi cum obcaecati sequi qui eum vitae quia consequuntur expedita </p>
-      <p>  laborum totam quod blanditiis debitis, exercitationem asperiores aperiam beatae tempora? Distinctio, cum.</p>
+    <div className="hero-container">
+      <Navbar />
+      <div className="hero-text">
+        <h1>Welcome to InterviewAI</h1>
+        <p>
+          Upload your resume to begin your personalized mock interview experience.
+        </p>
+        <p>
+          We'll extract the technical skills mentioned in your resume and generate
+          interview questions for each skill.
+        </p>
+        <p>
+          Practice answering questions through audio, receive real-time feedback, and improve your confidence before the real interview!
+        </p>
+        <p>
+          Ready to get started? Upload your resume now!
+        </p>
+
+        <FileUpload setSkills={setSkills} setQuestions={setQuestions} />
       </div>
-      
-
-        {/* <div className="btn-container">
-            <button className='btn'> <span>Upload</span></button>
-        </div>
-         */}
-    <FileUpload setSkills={setSkills}/>
     </div>
-  )
-}
+  );
+};
 
-export default HeroPage
+export default HeroPage;

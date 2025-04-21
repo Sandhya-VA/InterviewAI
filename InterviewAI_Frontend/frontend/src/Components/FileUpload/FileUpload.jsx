@@ -1,39 +1,49 @@
-
 import React, { useState, useRef } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import './FileUpload.css';
 
-const FileUpload = ({ setSkills }) => {
+const FileUpload = ({ setSkills, setQuestions }) => {
   const navigate = useNavigate();
-  const [fileName, setFileName] = useState("");
-  const [uploadStatus, setUploadStatus] = useState(""); // To show success/error message
+  const [fileName, setFileName] = useState('');
+  const [uploadStatus, setUploadStatus] = useState('');
   const fileInputRef = useRef(null);
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
+    if (!file) return;
 
-    if (file) {
-      setFileName(file.name);
+    setFileName(file.name);
+    setUploadStatus('Uploading and processing resume...');
 
-      const formData = new FormData();
-      formData.append("file", file);
+    const formData = new FormData();
+    formData.append('file', file);
 
-      try {
-        const response = await fetch("http://127.0.0.1:5000/upload_resume", {
-          method: "POST",
-          body: formData,
-        });
+    try {
+      const response = await fetch('http://127.0.0.1:5000/upload_resume', {
+        method: 'POST',
+        body: formData,
+      });
 
-        const result = await response.json();
-        if (response.ok) {
-          setUploadStatus(result.message);
-          setSkills(["Python", "JS", "SQL", "Docker", "Kubernetes", "AWS"]);
-          navigate("/tiles");
-        } else {
-          setUploadStatus(result.error);
-        }
-      } catch (error) {
-        setUploadStatus("Failed to upload file");
+      const result = await response.json();
+
+      if (response.ok) {
+        const skills = result.skills || [];
+        const questions = result.questions || {};
+
+        setSkills(skills);
+        setQuestions(questions);
+
+        localStorage.setItem("skills", JSON.stringify(skills));
+        localStorage.setItem("questions", JSON.stringify(questions));
+
+        setUploadStatus('✅ Resume processed. Redirecting...');
+        navigate('/tiles');
+      } else {
+        setUploadStatus(result.error || '⚠️ Server error. Please try again.');
       }
+    } catch (error) {
+      console.error('Upload error:', error);
+      setUploadStatus('❌ Failed to upload resume.');
     }
   };
 
@@ -41,15 +51,17 @@ const FileUpload = ({ setSkills }) => {
     <div className="btn-container">
       <input
         type="file"
+        accept="application/pdf"
         ref={fileInputRef}
-        style={{ display: "none" }}
+        style={{ display: 'none' }}
         onChange={handleFileChange}
       />
-      <button className="btn" onClick={() => fileInputRef.current.click()}>
-        <span>Upload File</span>
+      <button className="upload-btn" onClick={() => fileInputRef.current.click()}>
+        📄 Upload Resume
       </button>
-      {fileName && <p>Selected File: {fileName}</p>}
-      {uploadStatus && <p>{uploadStatus}</p>}
+
+      {fileName && <p className="file-label">Selected File: <strong>{fileName}</strong></p>}
+      {uploadStatus && <p className="upload-status">{uploadStatus}</p>}
     </div>
   );
 };
