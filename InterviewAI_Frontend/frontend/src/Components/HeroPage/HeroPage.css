@@ -1,22 +1,21 @@
+.hero-container {
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  padding-top: 40px;
+}
 
-.btn-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.hero-text {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #333;
+  line-height: 1.8;
+  padding: 20px;
 }
-.btn{
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 5px 20px 5px 20px;
-    width: fit-content;
-    background-color: rgb(6, 106, 6);
-    color: white;
-}
-.btn:hover{
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 5px 20px 5px 20px; 
-    background-color: rgb(35, 166, 35);
-    color: white;
-    
+
+.hero-text h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1e3a8a;
 }
